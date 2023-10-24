@@ -30,7 +30,6 @@ const fetchAndSaveData = async (page, country) => {
         });
 
         const handles = userData.map(user => user.handle);
-        // const query = handles.join(';');
 
         const cfResponse = await axios.get(endpoint + handles.join(';'));
         const userInfos = cfResponse.data.result;
@@ -38,19 +37,13 @@ const fetchAndSaveData = async (page, country) => {
             userData[i].maxRating = userInfos[i].maxRating;
             userData[i].country = userInfos[i].country;
             userData[i].registered = getAge(userInfos[i].registrationTimeSeconds);
+
+            // update user in database
+            const user = userData[i];
+            const query = { handle: user.handle };
+            const update = { $set: user };
+            await User.updateOne(query, update, { upsert: true });
         }
-
-        // Update the sorted user data into the database
-        const query = { handle: userData.handle };
-
-        // Define the update that should be applied
-        const update = {
-            $set: { maxRating: userData.maxRating, participation: userData.participation },
-            // You can add more fields to update as needed
-        };
-
-        // Use the updateOne method to either update the existing user or insert a new one
-        await User.updateOne(query, update, { upsert: true });
         console.log(`Page ${page} data saved.`);
     } catch (error) {
         console.error(`Error fetching and saving data for page ${page}:`);
@@ -84,8 +77,9 @@ const getAge = (timeSince) => {
 }
 
 
-const refreshUserDatabase = async (endPage, country) => {
+const refreshUserDatabase = async (country = 'Bangladesh') => {
     const startPage = 1;
+    const endPage = 70;
     for (let page = startPage; page <= endPage; page++) {
         await fetchAndSaveData(page, country);
         await delay(5000); // Delay for 5 seconds
