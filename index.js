@@ -39,6 +39,7 @@ app.use(xssClean());
 app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "views"));
+app.set('trust proxy', true);
 app.use(express.static(__dirname + '/public'));
 
 // routes

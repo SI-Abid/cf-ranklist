@@ -1,13 +1,15 @@
 /* styles.css */
 .header {
-    background-color: #891818; /* Background color for the header */
+    background-color: #891818;
+    /* Background color for the header */
     margin: 20px;
     padding: 5px;
     text-align: center;
 }
 
 .header h1 {
-    color: #e8e1e1; /* Text color for the header */
+    color: #e8e1e1;
+    /* Text color for the header */
 }
 
 .container {
@@ -16,8 +18,10 @@
 }
 
 .country-title {
-    font-size: 24px; /* Font size for the country title */
-    color: #2d441d; /* Text color for the country title */
+    font-size: 24px;
+    /* Font size for the country title */
+    color: #2d441d;
+    /* Text color for the country title */
 }
 
 table {
@@ -25,7 +29,8 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -40,45 +45,89 @@ th {
     color: white;
 }
 
-.newbie{
+.newbie {
     font-weight: bold;
     color: #808080;
 }
-.pupil{
+
+.pupil {
     font-weight: bold;
     color: #008000;
 }
-.specialist{
+
+.specialist {
     font-weight: bold;
     color: #03a89e;
 }
-.expert{
+
+.expert {
     font-weight: bold;
     color: #0000ff;
 }
-.cand_master{
+
+.cand_master {
     font-weight: bold;
     color: #aa00aa;
 }
-.master{
+
+.master {
     font-weight: bold;
-    color:#ffb458;
+    color: #ffb458;
 }
-.int_master{
+
+.int_master {
     font-weight: bold;
-    color:#ff8c00;
+    color: #ff8c00;
 }
-.grandmaster{
+
+.grandmaster {
     font-weight: bold;
-    color:red;
+    color: red;
 }
+
+.user-handle {
+    position: relative;
+    cursor: pointer;
+    /* Change cursor to pointer when hovering */
+}
+
+.user-handle::before {
+    content: attr(data-tooltip);
+    /* Get the content from the data-tooltip attribute */
+    position: absolute;
+    top: 110%;
+    /* Position it above the handle */
+    left: 100%;
+    transform: translateX(-50%);
+    /* Center it horizontally */
+    padding: 2px;
+    background: #464545;
+    color: white;
+    border-radius: 1px;
+    opacity: 0;
+    /* Hide the tooltip by default */
+    transition: opacity 0.3s;
+    /* Add a transition effect */
+    pointer-events: none;
+    /* Make it non-clickable */
+}
+
+.user-handle:hover::before {
+    opacity: 1;
+    /* Show the tooltip on hover */
+}
+
 a {
-    text-decoration: none; /* Remove default underline */
-    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: none;
+    /* Remove default underline */
+    color: inherit;
+    /* Inherit the color from the parent element */
 }
 
 /* Style for the user.handle anchor when hovering */
 a:hover {
-    text-decoration: underline; /* Add underline when hovering */
-    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: underline;
+    /* Add underline when hovering */
+    color: inherit;
+    /* Inherit the color from the parent element */
 }

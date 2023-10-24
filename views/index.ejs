@@ -20,37 +20,40 @@
             <p>
                 Last updated at: <%= updated_at %>
             </p>
-        <% } %>
-        <table>
-            <tr>
-                <th>Serial</th>
-                <th>Handle</th>
-                <th>Max Rating</th>
-                <th>Participation</th>
-                <th>Registered</th>
-            </tr>
-            <% for (let i = 0; i < users.length; i++) { %>
-                <tr>
-                    <td>
-                        <%= i + 1 %>
-                    </td>
-                    <td class="<%= users[i].maxRating < 1200 ? 'newbie' : users[i].maxRating < 1400 ? 'pupil' : users[i].maxRating < 1600 ? 'specialist' : users[i].maxRating < 1900 ? 'expert' : users[i].maxRating < 2100 ? 'cand_master' : users[i].maxRating < 2300 ? 'master' : users[i].maxRating < 2400 ? 'int_master' : 'grandmaster' %>">
-                        <a href="<%= users[i].profileUrl %>" target="_blank">
-                            <%= users[i].handle %>
-                        </a>
-                    </td>
-                    <td>
-                        <%= users[i].maxRating %>
-                    </td>
-                    <td>
-                        <%= users[i].participation %>
-                    </td>
-                    <td>
-                        <%= users[i].registered %>
-                    </td>
-                </tr>
             <% } %>
-        </table>
+                <table>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Handle</th>
+                        <th>Max Rating</th>
+                        <th>Participation</th>
+                        <th>Registered</th>
+                    </tr>
+                    <% for (let i=0; i < users.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= i + 1 %>
+                            </td>
+                            <td
+                                class="<%= users[i].maxRating < 1200 ? 'newbie' : users[i].maxRating < 1400 ? 'pupil' : users[i].maxRating < 1600 ? 'specialist' : users[i].maxRating < 1900 ? 'expert' : users[i].maxRating < 2100 ? 'cand_master' : users[i].maxRating < 2300 ? 'master' : users[i].maxRating < 2400 ? 'int_master' : 'grandmaster' %>">
+                                <a class="user-handle" href="<%= users[i].profileUrl %>" target="_blank"
+                                    data-tooltip="<%= users[i].maxRating < 1200 ? 'Newbie' : users[i].maxRating < 1400 ? 'Pupil' : users[i].maxRating < 1600 ? 'Specialist' : users[i].maxRating < 1900 ? 'Expert' : users[i].maxRating < 2100 ? 'Candidate Master' : users[i].maxRating < 2300 ? 'Master' : users[i].maxRating < 2400 ? 'International Master' : 'Grandmaster' %>">
+
+                                    <%= users[i].handle %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= users[i].maxRating %>
+                            </td>
+                            <td>
+                                <%= users[i].participation %>
+                            </td>
+                            <td>
+                                <%= users[i].registered %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </table>
     </div>
 </body>
 
