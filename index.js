@@ -1,11 +1,8 @@
 const { config } = require("dotenv");
 const { connect } = require("mongoose");
-const User = require("./models/user");
 const express = require('express');
 const path = require("path");
-const { refreshUserDatabase } = require("./controllers/utils");
 const getUsers = require("./routes/getUsers");
-const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
 const xssClean = require('xss-clean');
 const apis = require("./routes/apis");
@@ -37,7 +34,7 @@ const rateLimiter = rateLimit({
 app.set('trust proxy', true);
 app.use(rateLimiter);
 app.use(xssClean());
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(__dirname + '/public'));
