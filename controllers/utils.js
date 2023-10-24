@@ -84,10 +84,8 @@ const getAge = (timeSince) => {
 }
 
 
-const refreshUserDatabase = async (country) => {
+const refreshUserDatabase = async (endPage, country) => {
     const startPage = 1;
-    const endPage = 70;
-    await User.deleteMany({ country });
     for (let page = startPage; page <= endPage; page++) {
         await fetchAndSaveData(page, country);
         await delay(5000); // Delay for 5 seconds
