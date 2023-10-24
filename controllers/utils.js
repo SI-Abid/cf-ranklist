@@ -77,7 +77,7 @@ const getAge = (timeSince) => {
 }
 
 
-const refreshUserDatabase = async (country = 'Bangladesh') => {
+const refreshUserDatabase = async (endPage, country) => {
     const startPage = 1;
     const endPage = 70;
     for (let page = startPage; page <= endPage; page++) {
