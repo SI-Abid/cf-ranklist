@@ -14,7 +14,7 @@ const refreshUsers = async (req, res) => {
             message: 'Please provide country name in query'
         })
     }
-    await refreshUserDatabase();
+    await refreshUserDatabase(country);
     res.status(202).json({
         message: `All users data of ${country} has been refreshed`
     })

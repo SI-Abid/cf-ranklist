@@ -84,7 +84,7 @@ const getAge = (timeSince) => {
 }
 
 
-const refreshUserDatabase = async (country = 'Bangladesh') => {
+const refreshUserDatabase = async (country) => {
     const startPage = 1;
     const endPage = 70;
     await User.deleteMany({ country });
