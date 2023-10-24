@@ -1,0 +1,84 @@
+/* styles.css */
+.header {
+    background-color: #891818; /* Background color for the header */
+    margin: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.header h1 {
+    color: #e8e1e1; /* Text color for the header */
+}
+
+.container {
+    margin: 20px;
+    text-align: center;
+}
+
+.country-title {
+    font-size: 24px; /* Font size for the country title */
+    color: #2d441d; /* Text color for the country title */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    background-color: #8ec990;
+    color: white;
+}
+
+.newbie{
+    font-weight: bold;
+    color: #808080;
+}
+.pupil{
+    font-weight: bold;
+    color: #008000;
+}
+.specialist{
+    font-weight: bold;
+    color: #03a89e;
+}
+.expert{
+    font-weight: bold;
+    color: #0000ff;
+}
+.cand_master{
+    font-weight: bold;
+    color: #aa00aa;
+}
+.master{
+    font-weight: bold;
+    color:#ffb458;
+}
+.int_master{
+    font-weight: bold;
+    color:#ff8c00;
+}
+.grandmaster{
+    font-weight: bold;
+    color:red;
+}
+a {
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit the color from the parent element */
+}
+
+/* Style for the user.handle anchor when hovering */
+a:hover {
+    text-decoration: underline; /* Add underline when hovering */
+    color: inherit; /* Inherit the color from the parent element */
+}
