@@ -131,3 +131,13 @@ a:hover {
     color: inherit;
     /* Inherit the color from the parent element */
 }
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page>p {
+    margin: 10px;
+}

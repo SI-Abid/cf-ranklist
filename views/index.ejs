@@ -6,6 +6,16 @@
     <meta charset="UTF-8">
     <title>User Data Page</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
+    <script>
+        function navigateToPage(page) {
+            console.log(page);
+            // Construct the new URL with the updated page parameter
+            const newURL = `?page=${page}`;
+            // Use JavaScript to change the URL without a full page reload
+            window.location.href = newURL;
+        }
+    </script>
+
 </head>
 
 <body>
@@ -17,6 +27,15 @@
             <h2 class="country-title">
                 <%= country %>
             </h2>
+            <div class="page">
+                <% if (page>1) {%>
+                    <button onclick="navigateToPage(<%= +page - 1 %>)">prev</button>
+                <% } %>
+                <p>page: <%= page %></p>
+                <% if (page<totalPage) {%>
+                    <button onclick="navigateToPage(<%= +page + 1 %>)">next</button>
+                <% } %>
+            </div>
             <p>
                 Last updated at: <%= updated_at %>
             </p>
@@ -32,7 +51,7 @@
                     <% for (let i=0; i < users.length; i++) { %>
                         <tr>
                             <td>
-                                <%= i + 1 %>
+                                <%= ((page-1)*100 +i + 1) %>
                             </td>
                             <td
                                 class="<%= users[i].maxRating < 1200 ? 'newbie' : users[i].maxRating < 1400 ? 'pupil' : users[i].maxRating < 1600 ? 'specialist' : users[i].maxRating < 1900 ? 'expert' : users[i].maxRating < 2100 ? 'cand_master' : users[i].maxRating < 2300 ? 'master' : users[i].maxRating < 2400 ? 'int_master' : 'grandmaster' %>">

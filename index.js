@@ -31,7 +31,6 @@ const rateLimiter = rateLimit({
 });
 
 // middlewares
-app.set('trust proxy', true);
 app.use(rateLimiter);
 app.use(xssClean());
 // app.use(morgan('dev'));
